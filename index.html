@@ -133,52 +133,53 @@
 
         /* ===== ГЕРОЙ ===== */
         .hero {
-            background: linear-gradient(105deg, #f0f7ff 0%, #ffffff 100%);
+            background-color: var(--primary) !important;
+            color: white;
             padding: 5rem 0;
-            color: var(--text-dark);
-            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero .cta-button {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid white;
+        }
+
+        .hero .cta-button:hover {
+            background-color: rgba(255,255,255,0.9);
+            color: var(--primary-dark);
+            border-color: white;
+            transform: translateY(-1px);
         }
 
         .hero .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
-        .hero-content {
-            flex: 1 1 400px;
-            max-width: 600px;
+        .hero-image i {
+            color: white;
+            font-size: 150px;
+            display: block;
         }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-weight: 400;
-        }
-
-        .hero-image {
-            flex: 1 1 300px;
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: 0 20px 30px -10px rgba(0,76,155,0.1);
-        }
-
         /* ===== ОБЩИЕ СТИЛИ СЕКЦИЙ ===== */
         section {
             padding: 5rem 0;
@@ -621,7 +622,7 @@
         </div>
     </header>
 
-    <!-- Герой с #004c9b в заголовке -->
+
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in">
@@ -630,8 +631,10 @@
                 <a href="#order" class="cta-button">Оставить заявку</a>
             </div>
             <div class="hero-image fade-in">
-            <i class="fas fa-tractor" style="font-size: 150px; margin-right: 15px;"></i>
-</section>
+                <i class="fas fa-tractor" style="font-size: 150px;"></i>
+            </div>
+        </div>
+    </section>
 
     <!-- О нас -->
     <section id="about">
@@ -644,7 +647,7 @@
                     <p>Собственный склад и отлаженная логистика позволяют нам быстро комплектовать заказы любой сложности.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Склад запчастей">
+                    <img src="images\work.avif" alt="Склад запчастей">
                 </div>
             </div>
         </div>
