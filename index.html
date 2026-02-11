@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТД СПУТНИК | Запчасти и гидравлика</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== ПЕРЕРАБОТАННЫЙ ДИЗАЙН ===== */
+        /* ЦВЕТ #004c9b - основной */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            color: #1e2a36;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== ЦВЕТОВАЯ ПАЛИТРА ===== */
+        :root {
+            --primary-dark: #003a77;    /* Темнее #004c9b для наведения */
+            --primary: #004c9b;         /* ОСНОВНОЙ СИНИЙ — КАК В РЕФЕРЕНСЕ */
+            --primary-light: #2a6eb0;   /* Чуть светлее для акцентов */
+            --accent: #5886b4;          /* Приглушенный голубой */
+            --gray-bg: #f5f8fc;         /* Светлый фон с синевой */
+            --border-light: #d9e2ef;    /* Голубовато-серая рамка */
+            --text-dark: #1e2a36;
+            --text-muted: #3a4e62;
+            --white: #ffffff;
+        }
+
+        /* ===== ШАПКА ===== */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,76,155,0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            border: 1px solid transparent;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        nav .cta-button {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 8px 20px;
+        }
+
+        nav .cta-button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* ===== ГЕРОЙ ===== */
+        .hero {
+            background: linear-gradient(105deg, #f0f7ff 0%, #ffffff 100%);
+            padding: 5rem 0;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1 1 400px;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-image {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 20px 30px -10px rgba(0,76,155,0.1);
+        }
+
+        /* ===== ОБЩИЕ СТИЛИ СЕКЦИЙ ===== */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--gray-bg);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        h2::after {
+            display: none;
+        }
+
+        /* ===== О НАС ===== */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1 1 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            flex: 1 1 300px;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #e6f0fa;
+            border: 1px solid var(--border-light);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* ===== КАРТОЧКИ ТОВАРОВ ===== */
+        .product-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 2rem 2rem 2.2rem;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 15px 25px -8px rgba(0,76,155,0.08);
+        }
+
+        .category-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.8rem;
+        }
+
+        .category-card h3 i {
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+
+        .category-card ul {
+            list-style: none;
+        }
+
+        .category-card li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .category-card li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ===== ГИДРАВЛИКА ===== */
+        .hydraulics {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .hydraulics h2 {
+            color: white;
+        }
+
+        .hydraulics .section-description {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .hydra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hydra-item {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .hydra-item:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .hydra-item i {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .hydra-item h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .hydra-item p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+
+        /* ===== ПРЕИМУЩЕСТВА ===== */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+
+        .advantage-card {
+            text-align: center;
+            padding: 1.8rem;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+        }
+
+        .advantage-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .advantage-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ===== ОТЗЫВЫ ===== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            transition: border-color 0.2s;
+        }
+
+        .review-card:hover {
+            border-color: var(--primary);
+        }
+
+        .review-text {
+            font-style: normal;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary);
+            border-top: 1px solid var(--border-light);
+            padding-top: 1.2rem;
+        }
+
+        /* ===== ФОРМА ===== */
+        .form-section {
+            background-color: var(--gray-bg);
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            box-shadow: 0 10px 25px rgba(0,76,155,0.02);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border 0.2s, box-shadow 0.2s;
+            background-color: #fafcfc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0,76,155,0.08);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+        }
+
+        .form-container .cta-button {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 20px;
+            font-size: 1rem;
+        }
+
+        .form-container .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* ===== ФУТЕР ===== */
+        footer {
+            background-color: #002b54; /* Темно-синий, на основе #004c9b */
+            color: #d1e0f0;
+            padding: 3.5rem 0 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-column a {
+            color: #b8d4f0;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #b8d4f0;
+        }
+
+        .contact-info i {
+            color: #7aa5d9;
+            width: 18px;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.85rem;
+            color: #9bb9d9;
+        }
+
+        /* ===== АНИМАЦИИ ===== */
+        .fade-in {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== АДАПТАЦИЯ ===== */
+        @media (max-width: 992px) {
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content {
+                margin-bottom: 2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            nav ul {
+                gap: 1rem;
+                justify-content: center;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .form-container {
+                padding: 2rem;
+            }
+            section {
+                padding: 3.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-cog"></i>
+                <span>ТД СПУТНИК</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#products">Товары</a></li>
+                    <li><a href="#hydraulics">Гидравлика</a></li>
+                    <li><a href="#advantages">Преимущества</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#order" class="cta-button">Заявка</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Герой с #004c9b в заголовке -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Запчасти для тракторов и сельхозтехники</h1>
+                <p>Оригинальные детали и качественные аналоги. Гидравлика, мосты, двигатели. Доставка по всей России.</p>
+                <a href="#order" class="cta-button">Оставить заявку</a>
+            </div>
+            <div class="hero-image fade-in">
+            <i class="fas fa-tractor" style="font-size: 150px; margin-right: 15px;"></i>
+</section>
+
+    <!-- О нас -->
+    <section id="about">
+        <div class="container">
+            <h2>О нас</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="section-description" style="text-align: left; margin-bottom: 1.5rem;">Работаем с 2003 года. Надёжный поставщик промышленных предприятий.</p>
+                    <p>ГК «Спутник» — ваш партнер в сфере поставок запчастей для тракторной и сельскохозяйственной техники. Мы специализируемся на гидравлическом оборудовании, мостах, трансмиссиях и двигателях для МТЗ и других производителей.</p>
+                    <p>Собственный склад и отлаженная логистика позволяют нам быстро комплектовать заказы любой сложности.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Склад запчастей">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Товары -->
+    <section id="products">
+        <div class="container">
+            <h2>Каталог запчастей</h2>
+            <p class="section-description">Более 5000 наименований в наличии</p>
+            <div class="product-categories">
+                <div class="category-card fade-in">
+                    <h3><i class="fas fa-tractor"></i> МТЗ</h3>
+                    <ul>
+                        <li>Двигатели и блоки</li>
+                        <li>Мосты и трансмиссия</li>
+                        <li>Сцепление и КПП</li>
+                        <li>Электрооборудование</li>
+                        <li>Кабина и оперение</li>
+                    </ul>
+                </div>
+                <div class="category-card fade-in">
+                    <h3><i class="fas fa-wrench"></i> Сельхозтехника</h3>
+                    <ul>
+                        <li>Косилки и грабли</li>
+                        <li>Пресс-подборщики</li>
+                        <li>Культиваторы</li>
+                        <li>Сеялки</li>
+                        <li>Прицепы</li>
+                    </ul>
+                </div>
+                <div class="category-card fade-in">
+                    <h3><i class="fas fa-cogs"></i> Компоненты</h3>
+                    <ul>
+                        <li>Насосы НШ, НШН</li>
+                        <li>Гидроцилиндры</li>
+                        <li>РВД и фитинги</li>
+                        <li>Фильтры</li>
+                        <li>Ремкомплекты</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гидравлика — фон #004c9b -->
+    <section id="hydraulics" class="hydraulics">
+        <div class="container">
+            <h2>Гидравлическое оборудование</h2>
+            <p class="section-description">Комплексные поставки для гидросистем любой сложности</p>
+            <div class="hydra-grid">
+                <div class="hydra-item fade-in">
+                    <i class="fas fa-oil-can"></i>
+                    <h3>Насосы НШ</h3>
+                    <p>Все типоразмеры, высокое качество</p>
+                </div>
+                <div class="hydra-item fade-in">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Гидроцилиндры</h3>
+                    <p>Стандартные и нестандартные</p>
+                </div>
+                <div class="hydra-item fade-in">
+                    <i class="fas fa-link"></i>
+                    <h3>РВД</h3>
+                    <p>Рукава высокого давления</p>
+                </div>
+                <div class="hydra-item fade-in">
+                    <i class="fas fa-toolbox"></i>
+                    <h3>Ремкомплекты</h3>
+                    <p>Для ремонта гидравлики</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages">
+        <div class="container">
+            <h2>Преимущества</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card fade-in">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Оригиналы и аналоги</h3>
+                    <p>Поставляем как OEM, так и проверенные аналоги</p>
+                </div>
+                <div class="advantage-card fade-in">
+                    <i class="fas fa-tags"></i>
+                    <h3>Цены</h3>
+                    <p>Прямые контракты с заводами</p>
+                </div>
+                <div class="advantage-card fade-in">
+                    <i class="fas fa-truck"></i>
+                    <h3>Доставка</h3>
+                    <p>Отправка в день заказа</p>
+                </div>
+                <div class="advantage-card fade-in">
+                    <i class="fas fa-user-check"></i>
+                    <h3>Подбор</h3>
+                    <p>Помощь инженера-консультанта</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews">
+        <div class="container">
+            <h2>Отзывы</h2>
+            <p class="section-description">Нам доверяют крупные хозяйства</p>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-text">«Постоянно заказываем запчасти для МТЗ. Всегда в наличии, быстрая отгрузка. Рекомендуем как надёжного партнёра.»</div>
+                    <div class="review-author">ИП Пшеничная Л.А.</div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-text">«Приобретали гидроцилиндры и РВД для пресс-подборщика. Качество отличное, цены адекватные. Будем работать дальше.»</div>
+                    <div class="review-author">ООО "Сибран"</div>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-text">«Сотрудничаем несколько лет. Компания держит марку — редкие позиции привозят под заказ, всегда укладываются в сроки.»</div>
+                    <div class="review-author">ООО "Алида"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма заказа -->
+    <section id="order" class="form-section">
+        <div class="container">
+            <h2>Заказать запчасти</h2>
+            <p class="section-description">Заполните форму — мы свяжемся с вами для уточнения деталей</p>
+            <div class="form-container fade-in">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Имя *</label>
+                        <input type="text" id="name" name="name" required placeholder="Александр">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Категория запчастей</label>
+                        <select id="category" name="category">
+                            <option value="">Выберите</option>
+                            <option value="mtz">Трактор МТЗ</option>
+                            <option value="equipment">Сельхозтехника</option>
+                            <option value="hydraulics">Гидравлика</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Детали заказа</label>
+                        <textarea id="message" name="message" placeholder="Модель техники, артикулы, VIN..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ТД СПУТНИК</h3>
+                    <p style="color: #b8d4f0; font-size: 0.95rem; line-height: 1.5;">Поставки запчастей для тракторов и сельхозтехники с 2003 года.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Продукция</h3>
+                    <ul>
+                        <li><a href="#products">Запчасти МТЗ</a></li>
+                        <li><a href="#hydraulics">Гидравлика</a></li>
+                        <li><a href="#products">Мосты и КПП</a></li>
+                        <li><a href="#products">Фильтры, масла</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone-alt"></i> +7 (3952) 00-00-00</li>
+                        <li><i class="fas fa-envelope"></i> info@sputniks38.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> г. Иркутск, ул. Трактовая, 18Д</li>
+                        <li><i class="fas fa-clock"></i> Пн-Пт: 9:00–18:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2003–2025 ГК «Спутник»</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Плавный скролл
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Обработка формы
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`Спасибо, ${name}! Заявка принята. Мы перезвоним в течение рабочего дня.`);
+            this.reset();
+        });
+
+        // Анимация появления
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.category-card, .hydra-item, .advantage-card, .review-card, .form-container').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Актуальный год
+        document.querySelector('.copyright p').innerHTML = `© 2003–${new Date().getFullYear()} ГК «Спутник»`;
+    </script>
+</body>
+</html>
